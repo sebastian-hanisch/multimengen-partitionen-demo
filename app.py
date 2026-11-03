@@ -96,7 +96,7 @@ st.markdown(
 **Zählen ohne Reihenfolge.** Eine Folge unterscheidet „erst 1, dann 2“ von „erst 2, dann 1“; wo die Reihenfolge egal ist, spricht man von einer **Multimenge**: Bausteine dürfen mehrfach vorkommen, die Anordnung zählt nicht.
 Gibt es von jeder Größe $k$ genau $a_k$ verschiedene Bausteine, ist die Zahl der Multimengen der Gesamtgröße $n$ der Koeffizient von $z^n$ im **Produkt** der Faktoren $1/(1-z^k)^{a_k}$ (die **Euler-Transformation**).
 Mit „höchstens $m$ gleiche Bausteine“ wird daraus eine Menge ($m=1$). Aus einer Tabelle $a_k$ werden so Zahlpartitionen, Münzwechsel, Rucksack-Teilmengen, ebene Partitionen und Wurzelbäume ohne Reihenfolge.
-Die Zahlen kommen auf mehreren Rechenwegen heraus; **der Aufwand ist sehr verschieden**.
+Die Zahlen kommen auf mehreren Rechenwegen heraus; **der Aufwand kann sehr verschieden sein**.
 
 Weiter unten: **fünf Experimente** (**🔬**), eine **🎲 Spielwiese**, **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
 """
@@ -259,7 +259,7 @@ st.markdown(
 | **Gleiche Bausteine sind austauschbar, verschiedene nicht** | Zwei Münzen gleichen Werts zählt die Tabelle als einen Baustein; zwei Gegenstände gleichen Gewichts als zwei verschiedene (Eintrag 2). Wer das anders meint, braucht eine andere Tabelle. | – |
 | **Keine Symmetrie außer dem Vertauschen gleicher Bausteine** | Halsketten, Graphen bis auf Isomorphie und Ähnliches haben mehr Symmetrie; dafür braucht man Burnside und Pólya. | Stück 11 der Reihe |
 | **Die Bausteine tragen keine Beschriftung** | Mit Beschriftung (Marken auf den Bausteinen) zählt man anders (exponentielle erzeugende Funktion: Stirling-Zahlen, Bell-Zahlen). | Stück 6 der Reihe |
-| **Die Fünfeckszahlen-Rekursion** | Gilt nur für die Partitionszahl ohne Höchstzahl; für andere Tabellen $a_k$ gibt es sie nicht. | – |
+| **Die Fünfeckszahlen-Rekursion** | Gilt in dieser Form nur für die Partitionszahl ohne Höchstzahl; für allgemeine Tabellen $a_k$ gibt es eine solche Abkürzung nicht (Sonderfälle wie Partitionen in lauter verschiedene Teile haben eine Abwandlung mit Zusatzterm). | – |
 | **Rational ist nicht alles** | Endlich viele Faktoren geben eine rationale Reihe; die Partitionszahl nicht (Experiment 5). Ihr Wachstum ist eine Frage der Asymptotik. | Stück 2, Stück 9 der Reihe |
 | **Zielgröße begrenzt** | Je Familie rechnet die App nur bis zu einer Obergrenze ({', '.join(f'{k}: {v}' for k, v in C.N_CAP.items())}); darüber wird gekappt und das gesagt. | – |
 """
@@ -276,7 +276,7 @@ Der Koeffizient $c_n = [z^n]\,\mathrm{MSET}(z)$ ist die Zahl der Multimengen der
 
 **Rekursion.** Die logarithmische Ableitung des Produkts gibt $n\, c_n = \sum_{k=1}^{n} b_k\, c_{n-k}$ mit $b_k = \sum_{d \mid k} d\, a_d$ (Multimengen); bei höchstens $m$ gleichen Bausteinen wird $b_k$ um $-(m+1)\, d\, a_d$ für jedes $d$ mit $(m+1)\,d \mid k$ verringert. Beide Wege haben $n(n+1)/2$ beziehungsweise (Produkt) $\sum_k a_k (n-k+1)$ Schritte.
 
-**Partitionen.** $a_k = 1$: $p(n) = [z^n] \prod_k (1-z^k)^{-1}$. Eulers Fünfeckszahlensatz $\prod_k (1-z^k) = \sum_{j} (-1)^j z^{j(3j-1)/2}$ gibt $p(n) = \sum_{j \ge 1} (-1)^{j+1} \big[p(n - j(3j-1)/2) + p(n - j(3j+1)/2)\big]$ mit etwa $\sqrt{n}$ Termen je $n$.
+**Partitionen.** $a_k = 1$: $p(n) = [z^n] \prod_k (1-z^k)^{-1}$. Eulers Fünfeckszahlensatz $\prod_k (1-z^k) = \sum_{j} (-1)^j z^{j(3j-1)/2}$ gibt $p(n) = \sum_{j \ge 1} (-1)^{j+1} \big[p(n - j(3j-1)/2) + p(n - j(3j+1)/2)\big]$ mit höchstens etwa $1{,}6\sqrt{n}$ Termen je $n$.
 Ungerade Teile und verschiedene Teile geben dieselbe Zahl: $\prod_k (1+z^k) = \prod_k (1 - z^{2k-1})^{-1}$. Spiegeln des Ferrers-Diagramms vertauscht größten Teil und Zahl der Teile.
 
 **Wurzelbäume.** $T(z) = z \cdot \mathrm{MSET}(T)(z)$, das heißt $a_k = t_k$ rückgekoppelt: $t_{n+1} = c_n$ mit $c = \prod_k (1 - z^k)^{-t_k}$. Mit Reihenfolge der Kinder gilt $T = z/(1 - T)$ (Stück 3), die Catalan-Zahlen.

@@ -187,7 +187,7 @@ def verdict_effort(rows: list[dict]):
     last = rows[-1]
     return "success", (f"Bei n = {last['n']} müsste Aufzählen {big_text(last['Partitionen (Aufzählen)'])} Partitionen anfassen, "
                        f"das Produkt braucht {big_text(last['Schritte Produkt'])} Schritte, die Fünfeckszahlen-Rekursion {big_text(last['Schritte Fünfeckszahlen'])} (etwa {de(last['Produkt : Fünfeckszahlen'], 1)}-mal weniger). "
-                       "Die Rekursion der logarithmischen Ableitung braucht wie das Produkt n(n+1)/2 Schritte: gleiche Zahlen, gleicher Aufwand; nur die Fünfeckszahlen sparen, und nur bei der Partitionszahl.")
+                       "Die Rekursion der logarithmischen Ableitung braucht wie das Produkt n(n+1)/2 Schritte: gleiche Zahlen und gleiche Zahl der Schritte (die Laufzeit ist etwas höher); die Fünfeckszahlen sparen Schritte bei der Partitionszahl.")
 
 
 def time_experiment() -> list[dict]:
@@ -290,7 +290,7 @@ def verdict_rational(rows: list[dict]):
     if any(r["kürzestes Rezept (Ordnung)"] != r["Grad des Nenners"] for r in small):
         return "error", "Die geratene Ordnung weicht vom Grad des Nenners ab."
     return "warning", (f"Teile bis k haben eine rationale Reihe: das geratene Rezept hat genau die Ordnung k(k+1)/2 (k = 1 bis {C.RATIONAL_KS[-1]}). "
-                       f"Für alle Partitionen findet das Raten bei {p['Terme']} Termen kein kurzes Rezept (das kürzeste hat {p['Länge']} Koeffizienten bei {p['Terme']} Termen, es merkt sich die Folge nur, statt sie zu erklären): p(n) ist nicht rational.")
+                       f"Für alle Partitionen findet das Raten bei {p['Terme']} Termen kein kurzes Rezept (das kürzeste hat {p['Länge']} Koeffizienten bei {p['Terme']} Termen, es merkt sich die Folge nur, statt sie zu erklären). Das Raten allein zeigt nur, dass es kein kürzeres Rezept gibt; dass p(n) nicht rational ist, ist ein Satz (das Wachstum ist subexponentiell, aber schneller als jedes Polynom).")
 
 
 # ----------------------------------------------------------------------------- Spielwiese: Partitionen ansehen
