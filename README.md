@@ -1,7 +1,6 @@
 # Multimengen und Partitionen – wenn die Reihenfolge egal ist – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-multimengen-partitionen-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-multimengen-partitionen-demo.streamlit.app/)**
 
 Stück 5 von 16 der Reihe **„Abzählen und erzeugende Funktionen“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (die Linie wird erst vollständig veröffentlicht). Vorgänger sind `aufzaehlen-rekursion-demo` (Stück 1), `rationale-ef-demo` (Stück 2), `symbolische-methode-demo` (Stück 3) und `semiring-rekursion-demo` (Stück 4). Der Baukasten aus Stück 3 kennt Folge, Summe und Produkt; diese Demo fügt die **Multimenge** hinzu, bei der die Reihenfolge egal ist: Gibt es von jeder Größe k genau a_k verschiedene Bausteine, ist die Zahl der Multimengen der Gesamtgröße n der Koeffizient von zⁿ im Produkt der Faktoren 1/(1 − zᵏ)^(a_k) (die **Euler-Transformation**). Aus der Tabelle a_k werden Zahlpartitionen, Münzwechsel, Rucksack-Teilmengen, ebene Partitionen und Wurzelbäume ohne Reihenfolge. Die Zahlen kommen auf mehreren Rechenwegen heraus; der Aufwand ist sehr verschieden. Mit „Zahlpartition“ ist hier die Summe ohne Reihenfolge gemeint, nicht die Mengenpartition (Stück 6) und nicht das Partitionsproblem der Komplexitätstheorie.
 
@@ -127,4 +126,4 @@ Gebaut mit Streamlit, Plotly und fpdf2.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Abzählen: von der Rekursion zur Verfahrenswahl](https://sebastianhanisch.net/konzepte-abzaehlen.html).
